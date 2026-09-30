@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="./Assets/Icons/FaviconProyectoo" type="image/png">
         <link rel="stylesheet" href="./Styles/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <title>Yume Moon Café</title>
     </head>
     <body>
         <header>
-            <a href="index.html">
+            <!-- <a href="index.html">
                 <img class="logo" src="./Assets/Icons/LogoPproyecto" alt="Logo en forma de una luna violeta con un brillito amarillo">
             </a>
             <nav>
@@ -20,17 +21,62 @@
                     <li><a href="./Pages/Bebidas.html">Bebidas</a></li>
                     <li><a href="./Pages/Visitanos.html">Visitanos</a></li>
                 </ul>
+            </nav> -->
+            <nav class="navbar navbar-expand-lg bg-luna-violeta p-0 m-0 border-0">
+                <div class="container-fluid p-0 m-0">
+                    <a class="navbar-brand m-0 p-0" href="index.html">
+                        <img class="logo" src="./Assets/Icons/LogoPproyecto" alt="Logo de luna violeta" style="height: 60px;">
+                    </a>
+                    <button class="navbar-toggler shadow-none border-0 p-0 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse w-100 m-0 border-0 p-0" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-auto m-0 p-0">
+                            <a class="nav-link active mi-enlace-interactivo d-inline-flex py-1 px-2 text-decoration-none border rounded-2" aria-current="page" href="index.html">Inicio</a>
+                            <a class="nav-link focus mi-enlace-interactivo d-inline-flex py-1 px-2 text-decoration-none border rounded-2" href="./Pages/Nosotros.html">Nosotros</a>
+                            <a class="nav-link mi-enlace-interactivo d-inline-flex py-1 px-2 text-decoration-none border rounded-2" href="./Pages/Dulces.html">Dulces</a>
+                            <a class="nav-link mi-enlace-interactivo d-inline-flex py-1 px-2 text-decoration-none border rounded-2" href="./Pages/Bebidas.html">Bebidas</a>
+                            <a class="nav-link mi-enlace-interactivo d-inline-flex py-1 px-2 text-decoration-none border rounded-2" href="./Pages/Visitanos.html">Visitanos</a>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </header>
         <main>
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./Images/Home.jpg" class="d-block w-100" alt="La foto de adentro del local con mesas lila, decoracion y liula flores lila">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Images/tazas (2).jpg" class="d-block w-100" alt="Juego de tazas de te.">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Images/mesa_dulces.jpg" class="d-block w-100" alt="Mesa llena de dulces violetas.">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <section class="section1">
                 <article class="home">
                     <h1>Yume Moon Café</h1>
                     <p>Bienvenido a Yume Moon Café, un rincón mágico donde el delicioso sabor de los dulces artesanales se mezcla perfectamente con la mística de una noche estrellada. En nuestro espacio lila, diseñado con una estética única y acogedora, podrás relajarte, compartir momentos inolvidables y probar propuestas totalmente nuevas inspiradas en la rica cultura tradicional japonesa. Cada postre y bebida está pensado para transportarte a un sueño asiático lleno de detalles encantadores. Te invitamos a vivir una experiencia gastronómica diferente, descubrir texturas sorprendentes y disfrutar de la calidez de nuestro servicio. ¡Ven a crear tu propio momento lila con nosotros!</p>
-                    <figure class="img-home">
+                    <!-- <figure class="img-home">
                         <img src="./Images/Home" alt="La foto de adentro del local con mesas lila, decoracion y liula flores lila">
                         <figcaption>Creamos este hermoso lugar para que tengas tu experiencia lila y japonsa.</figcaption>
-                    </figure>
+                    </figure> -->
                     <button class="btn-home" onclick="window.location.href='./Pages/Dulces.html'">VER DULCES</button>
                 </article>
             </section>
@@ -42,5 +88,6 @@
                 <li><a href="https://tiktok.com" target="_blank">Tik Tok</a></li>
             </ul>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>

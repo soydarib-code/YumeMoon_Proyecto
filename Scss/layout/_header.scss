@@ -1,0 +1,18 @@
+@use "../utilities/mixins" as *;
+
+header {
+  height: auto;
+
+  @include desktop {
+    height: static;
+    padding: 0;
+  }
+}
+
+.logo {
+  margin-left: 0;
+
+  @include desktop {
+    margin-left: initial;
+  }
+}

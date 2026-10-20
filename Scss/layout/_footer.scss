@@ -2,7 +2,7 @@
 @use "../utilities/mixins" as *;
 
 footer {
-  background-color: hsl(271, 50%, 90%);
+  background-color: $color-violeta-claro;
   padding: 1.5rem 1rem;
   text-align: center;
   display: flex;
@@ -25,18 +25,18 @@ footer {
   align-items: center;
 
   li a {
-    color: hsl(274, 47%, 29%);
+    color: $color-violeta-oscuro;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      color: hsl(274, 47%, 13%);
+      color: $sombra-click;
       text-decoration: underline;
     }
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 3px hsl(274, 47%, 29%);
+      box-shadow: 0 0 0 3px $color-violeta-oscuro;
       border-radius: 4px;
     }
 

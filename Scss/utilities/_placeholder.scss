@@ -1,13 +1,9 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 %tarjeta-violeta {
   background-color: $color-violeta-oscuro;
   color: $color-violeta-claro;
   border-radius: $borde-redondeado;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: $sombra-tarjeta;
-  }
+  @include card-hover-effect;
 }

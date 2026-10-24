@@ -1,19 +1,21 @@
+@use "variables" as *;
+
 @mixin desktop {
   @media screen and (min-width: 1024px) {
     @content;
   }
 }
+
 @mixin card-hover-effect {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
- 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: $sombra-tarjeta;
-    }
-    
-    &:active {
-        transform: translateY(-1px);
-        box-shadow: $sombra-click;
-    }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $sombra-tarjeta;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: $sombra-click;
+  }
 }

@@ -1,0 +1,43 @@
+@use "../utilities/variables" as *;
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fuente-titulos;
+  text-align: center;
+}
+
+p, a, li, span, figcaption {
+  font-family: $fuente-texto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: $color-violeta-principal;
+  margin-bottom: 1rem;
+}
+
+
+h2 {
+  font-size: 1.6rem;
+  color: #865400; 
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+li {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+
+@media screen and (min-width: 768px) {
+  h1 { font-size: 3rem; }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+}

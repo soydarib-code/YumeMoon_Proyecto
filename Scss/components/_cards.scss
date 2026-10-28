@@ -1,0 +1,221 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
+
+// Contenedores generales de páginas
+.home, .nosotros, .section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.section5 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+
+  h2, p {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+
+// Sección Dulces con Grid
+.dulces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-content: start;
+  flex: 1;
+
+  h2, p {
+    grid-column: 1/-1;
+  }
+
+  img {
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: $borde-redondeado;
+    object-fit: cover;
+
+    @include desktop {
+      width: 20rem;
+      height: 20rem;
+      max-width: 100%;
+      aspect-ratio: auto;
+    }
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "titulo    titulo    titulo"
+      "subtitulo subtitulo subtitulo"
+      "card1     card2     card3"
+      "card4     card5     .";
+    gap: 2rem;
+    justify-items: center;
+
+    h2 { grid-area: titulo; }
+    p { grid-area: subtitulo; }
+  }
+}
+
+// Tarjetas individuales de Dulces
+.dulce1, .dulce2, .dulce3, .dulce4, .dulce5 {
+  @extend %tarjeta-violeta;
+  width: 100%;
+  max-width: 22.5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@include desktop {
+  .dulce1 { grid-area: card1; }
+  .dulce2 { grid-area: card2; }
+  .dulce3 { grid-area: card3; }
+  .dulce4 { grid-area: card4; }
+  .dulce5 { grid-area: card5; }
+}
+
+// Tarjetas de Bebidas
+.bebidas-calientes, .bebidas-frias {
+  @extend %tarjeta-violeta;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  gap: 2rem;
+  padding: 1.5rem;
+  margin: auto;
+
+  .bebi-calien, .bebi-fri {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .bebidas_Calientes, .bebidas_Frias {
+    text-align: center;
+    justify-content: center;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    width: 60%;
+    max-width: none;
+    padding: 0;
+
+    .bebi-calien, .bebi-fri {
+      margin-left: 2.5rem;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .bebidas_Calientes, .bebidas_Frias {
+      text-align: left;
+    }
+  }
+}
+
+.bebidas-calientes { @include desktop { gap: 4rem; } }
+.bebidas-frias { @include desktop { gap: 8rem; } }
+
+// Contenedores de imágenes individuales de bebidas
+.bebida_caliente, .ice_taro_latte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 25rem;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+}
+
+// Bloques generales de imágenes adaptativas
+.img-nosotros, .ubicacion, .bebida_caliente, .ice_taro_latte,
+.dulce1, .dulce2, .dulce3, .dulce4, .dulce5 {
+  padding: 1.25rem;
+  border: 1px solid transparent;
+}
+
+.img-nosotros, .ubicacion {
+  img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    border-radius: 1rem;
+
+    @include desktop { width: 70%; }
+  }
+}
+
+.img-home img {
+  width: 100%;
+  @include desktop { width: auto; }
+}
+
+.acordeon h2 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+
+@keyframes aparecer-suave {
+  from { 
+    opacity: 0; 
+    transform: translateY(12px); }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); }
+}
+
+main h1, main h2:first-child {
+  animation: aparecer-suave 0.7s ease-out;
+}
+
+@include tablet {
+  .dulces { 
+    gap: 2rem; 
+    padding: 2rem; }
+  .bebidas-calientes, .bebidas-frias { padding: 2rem; }
+}
+
+
+.acordeon { padding: 1rem + 0.5rem; }
+
+
+main img { 
+  max-width: 100%; 
+  height: auto; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  main h1, main h2:first-child { animation: none; }
+}

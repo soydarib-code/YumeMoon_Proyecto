@@ -1,8 +1,9 @@
+
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 @use "../utilities/placeholders";
 
-// Contenedores generales de páginas
+/* Contenedores generales de páginas */
 .home, .nosotros, .section2 {
   display: flex;
   flex-direction: column;
@@ -27,7 +28,7 @@
   }
 }
 
-// Sección Dulces con Grid
+/* Sección Dulces con Grid */
 .dulces {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
@@ -38,15 +39,15 @@
   align-content: start;
   flex: 1;
 
-  h2, p {
-    grid-column: 1/-1;
+  h1, p {
+    grid-column: 1 / -1;
   }
 
   img {
     width: 100%;
     max-width: 20rem;
     height: auto;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     border-radius: $borde-redondeado;
     object-fit: cover;
 
@@ -64,17 +65,24 @@
       "titulo    titulo    titulo"
       "subtitulo subtitulo subtitulo"
       "card1     card2     card3"
-      "card4     card5     .";
+      "card4     card5     card6";
+
     gap: 2rem;
     justify-items: center;
 
-    h2 { grid-area: titulo; }
-    p { grid-area: subtitulo; }
+    h1 {
+      grid-area: titulo;
+    }
+
+    p {
+      grid-area: subtitulo;
+    }
   }
 }
 
-// Tarjetas individuales de Dulces
-.dulce1, .dulce2, .dulce3, .dulce4, .dulce5 {
+/* Tarjetas individuales de Dulces */
+.dulce1, .dulce2, .dulce3,
+.dulce4, .dulce5, .dulce6 {
   @extend %tarjeta-violeta;
   width: 100%;
   max-width: 22.5rem;
@@ -84,15 +92,34 @@
   align-items: center;
 }
 
+/* Posición de las tarjetas en escritorio */
 @include desktop {
-  .dulce1 { grid-area: card1; }
-  .dulce2 { grid-area: card2; }
-  .dulce3 { grid-area: card3; }
-  .dulce4 { grid-area: card4; }
-  .dulce5 { grid-area: card5; }
+  .dulce1 {
+    grid-area: card1;
+  }
+
+  .dulce2 {
+    grid-area: card2;
+  }
+
+  .dulce3 {
+    grid-area: card3;
+  }
+
+  .dulce4 {
+    grid-area: card4;
+  }
+
+  .dulce5 {
+    grid-area: card5;
+  }
+
+  .dulce6 {
+    grid-area: card6;
+  }
 }
 
-// Tarjetas de Bebidas
+/* Tarjetas de Bebidas */
 .bebidas-calientes, .bebidas-frias {
   @extend %tarjeta-violeta;
   display: flex;
@@ -135,10 +162,19 @@
   }
 }
 
-.bebidas-calientes { @include desktop { gap: 4rem; } }
-.bebidas-frias { @include desktop { gap: 8rem; } }
+.bebidas-calientes {
+  @include desktop {
+    gap: 4rem;
+  }
+}
 
-// Contenedores de imágenes individuales de bebidas
+.bebidas-frias {
+  @include desktop {
+    gap: 8rem;
+  }
+}
+
+/* Contenedores de imágenes individuales de bebidas */
 .bebida_caliente, .ice_taro_latte {
   display: flex;
   flex-direction: column;
@@ -156,9 +192,11 @@
   }
 }
 
-// Bloques generales de imágenes adaptativas
-.img-nosotros, .ubicacion, .bebida_caliente, .ice_taro_latte,
-.dulce1, .dulce2, .dulce3, .dulce4, .dulce5 {
+/* Bloques generales de imágenes adaptativas */
+.img-nosotros, .ubicacion,
+.bebida_caliente, .ice_taro_latte,
+.dulce1, .dulce2, .dulce3,
+.dulce4, .dulce5, .dulce6 {
   padding: 1.25rem;
   border: 1px solid transparent;
 }
@@ -170,15 +208,21 @@
     height: auto;
     border-radius: 1rem;
 
-    @include desktop { width: 70%; }
+    @include desktop {
+      width: 70%;
+    }
   }
 }
 
 .img-home img {
   width: 100%;
-  @include desktop { width: auto; }
+
+  @include desktop {
+    width: auto;
+  }
 }
 
+/* Acordeón */
 .acordeon h2 {
   display: flex;
   align-items: center;
@@ -186,36 +230,49 @@
   justify-content: center;
 }
 
-
+/* Animación de aparición suave */
 @keyframes aparecer-suave {
-  from { 
-    opacity: 0; 
-    transform: translateY(12px); }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 main h1, main h2:first-child {
   animation: aparecer-suave 0.7s ease-out;
 }
 
+/* Ajustes para tablet */
 @include tablet {
-  .dulces { 
-    gap: 2rem; 
-    padding: 2rem; }
-  .bebidas-calientes, .bebidas-frias { padding: 2rem; }
+  .dulces {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .bebidas-calientes, .bebidas-frias {
+    padding: 2rem;
+  }
 }
 
+/* Espaciado del acordeón */
+.acordeon {
+  padding: 1rem + 0.5rem;
+}
 
-.acordeon { padding: 1rem + 0.5rem; }
+/* Imágenes generales */
+main img {
+  max-width: 100%;
+  height: auto;
+}
 
-
-main img { 
-  max-width: 100%; 
-  height: auto; }
-
-
+/* Accesibilidad: reducir animaciones */
 @media (prefers-reduced-motion: reduce) {
-  main h1, main h2:first-child { animation: none; }
+  main h1, main h2:first-child {
+    animation: none;
+  }
 }

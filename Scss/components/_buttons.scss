@@ -1,0 +1,24 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.btn-home {
+  background-color: $color-violeta-principal;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: $color-amarillo;
+  font-weight: bold;
+  border: none;
+  @include transicion-suave(0.3s);
+  
+  &:hover {
+    background-color: $color-amarillo;
+    color: $color-violeta-principal;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: $sombra-click;
+  }
+}
+

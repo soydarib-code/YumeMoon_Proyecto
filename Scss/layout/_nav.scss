@@ -1,0 +1,46 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 0;
+  gap: 0.5rem;
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    margin-right: initial;
+    gap: initial;
+  }
+}
+
+.bg-luna-violeta {
+  background-color: $color-violeta-claro;
+
+  .navbar-nav .nav-link.mi-enlace-interactivo {
+    &:hover {
+      color: $color-blanco;
+      background-color: $color-violeta-principal;
+    }
+
+    &:focus {
+      color: $color-violeta-principal;
+      background-color: $color-violeta-focus;
+      outline: 1px dashed $color-violeta-outline;
+      outline-offset: 2px;
+    }
+
+    &.active {
+      color: $color-violeta-principal;
+      background-color: $color-violeta-active;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-blanco;
+        background-color: $color-violeta-principal;
+      }
+    }
+  }
+}
